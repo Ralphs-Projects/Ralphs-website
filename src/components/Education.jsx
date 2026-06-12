@@ -33,7 +33,6 @@ class Education extends React.Component {
                           <p>
                             Completed at <strong>Namibian University of Science and Technology</strong> (NUST)
                           </p>
-                          <p>Graduated: 2024</p>
                           <p>
                             Specialization: Software Development | Course highlights are Software design and Project management.
                           </p>
@@ -44,8 +43,8 @@ class Education extends React.Component {
                       <div className="qualification-details">
                         <h6>Additional Certifications</h6>
                         <ul>
+                          <li>Diploma in Real time computing - Aalborg University</li>
                           <li>Google Certificate: Foundations of Project Management</li>
-                          <li>ReactJS & NodeJS Development</li>
                         </ul>
                       </div>
                     </div>
@@ -64,9 +63,8 @@ class Education extends React.Component {
                         <div className="education-text">
                           <h6>Honours in Computer Science</h6>
                           <p>
-                            In Progress at <strong>Namibian University of Science and Technology</strong> (NUST)
+                            Completed at <strong>Namibian University of Science and Technology</strong> (NUST)
                           </p>
-                          <p>Expected Graduation: 2026</p>
                           <p>
                             Focus: Advanced Software Development | Emerging technologies and Secure Systems.
                           </p>
@@ -75,17 +73,6 @@ class Education extends React.Component {
                     </div>
                   </div>
 
-                  {/* Education Timeline (Optional) */}
-                  <div className="col-md-6">
-                    <div className="education-timeline">
-                      <h6>Timeline</h6>
-                      <ul>
-                        <li>2020 - 2024: Bachelors in Computer Science</li>
-                        <li>2023: Completed internship</li>
-                        <li>2025: Honors in Computer Science (In Progress)</li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

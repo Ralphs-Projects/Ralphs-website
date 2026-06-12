@@ -39,10 +39,21 @@ class Contact extends React.Component {
                               </span>
                             </a>
                           </li>
+                          <li>
+                            <a
+                              href="https://github.com/Ralph220091994"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <span className="ico-circle">
+                                <i className="ion-social-github"></i>
+                              </span>
+                            </a>
+                          </li>
                         </ul>
                       </div>
                       <a
-                        href={`${process.env.PUBLIC_URL}/Resume-RD.pdf`} // Pointing to the public folder
+                        href={`${process.env.PUBLIC_URL}/Resume_Ralph-D.pdf`} // Pointing to the public folder
                         download
                         className="btn btn-secondary"
                       >
