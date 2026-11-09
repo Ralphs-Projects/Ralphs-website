@@ -1,0 +1,46 @@
+#contact { padding-top: 24px; }
+
+.contact {
+  position: relative;
+  overflow: hidden;
+  padding: 56px 48px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* soft teal glow behind the card content */
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: auto -20% -60% -20%;
+  height: 120%;
+  background: radial-gradient(ellipse at center, rgba(95, 212, 208, 0.14), transparent 60%);
+  pointer-events: none;
+}
+.contact > * { position: relative; }
+
+.contact__text {
+  max-width: 520px;
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: 17px;
+}
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+.contact__cv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 26px;
+  margin-top: 22px;
+}
+
+@media (max-width: 600px) {
+  .contact { padding: 40px 20px; }
+}

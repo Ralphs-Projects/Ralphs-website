@@ -1,86 +1,31 @@
-import React from "react";
-import diplomaIcon from "../img/diploma_855566.png"; 
-import diplomaIcon2 from "../img/diploma_354647.png"; 
+import Icon from "./Icon.jsx";
+import { education } from "../data/education.js";
+import "./Education.css";
 
-class Education extends React.Component {
-  render() {
-    return (
-      <section id="education" className="education-mf sect-pt4 route">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12">
-              <div className="box-shadow-full">
-                <div className="row">
-                  {/* Education Title */}
-                  <div className="col-12">
-                    <div className="title-box-2">
-                      <h5 className="title-left">Education</h5>
-                    </div>
-                  </div>
-
-                  {/* Education Content */}
-                  <div className="col-md-6">
-                    <div className="education-info">
-                      {/* Degree & University Information */}
-                      <div className="degree-details">
-                        <img
-                          src={diplomaIcon}
-                          alt="Diploma Icon"
-                          className="education-icon"
-                        />
-                        <div className="education-text">
-                          <h6>Bachelors in Computer Science</h6>
-                          <p>
-                            Completed at <strong>Namibian University of Science and Technology</strong> (NUST)
-                          </p>
-                          <p>
-                            Specialization: Software Development | Course highlights are Software design and Project management.
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Additional Qualifications */}
-                      <div className="qualification-details">
-                        <h6>Additional Certifications</h6>
-                        <ul>
-                          <li>Diploma in Real time computing - Aalborg University</li>
-                          <li>Google Certificate: Foundations of Project Management</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Honors Degree in Progress */}
-                  <div className="col-md-6">
-                    <div className="education-info">
-                      {/* Degree & University Information - Honors */}
-                      <div className="degree-details">
-                        <img
-                          src={diplomaIcon2}
-                          alt="Diploma Icon"
-                          className="education-icon"
-                        />
-                        <div className="education-text">
-                          <h6>Honours in Computer Science</h6>
-                          <p>
-                            Completed at <strong>Namibian University of Science and Technology</strong> (NUST)
-                          </p>
-                          <p>
-                            Focus: Advanced Software Development | Emerging technologies and Secure Systems.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
+export default function Education() {
+  return (
+    <section id="education" className="section">
+      <div className="container">
+        <div className="section-head">
+          <span className="eyebrow">Education</span>
+          <h2 className="section-title">Degrees &amp; certificates</h2>
         </div>
-      </section>
-    );
-  }
-}
 
-export default Education;
+        <ul className="edu">
+          {education.map((e) => (
+            <li key={e.title} className={`card edu__item${e.detail ? "" : " edu__item--short"}`}>
+              <span className="edu__icon">
+                <Icon name={e.detail ? "degree" : "award"} size={22} />
+              </span>
+              <div>
+                <h3 className="edu__title">{e.title}</h3>
+                <p className="edu__school">{e.school}</p>
+                {e.detail && <p className="edu__detail">{e.detail}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}

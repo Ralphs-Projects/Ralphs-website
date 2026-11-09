@@ -1,0 +1,194 @@
+.gallery { min-width: 0; }
+
+.gallery__stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #090d14;
+  border: 1px solid var(--border);
+  touch-action: pan-y;
+  user-select: none;
+}
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: gallery-fade 0.25s ease-out;
+}
+@keyframes gallery-fade { from { opacity: 0.35; } }
+
+.gallery__nav,
+.gallery__expand {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(6, 8, 13, 0.72);
+  color: var(--text);
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.15s, background-color 0.15s, color 0.15s;
+}
+.gallery__nav {
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  border-radius: 50%;
+}
+.gallery__nav--prev { left: 12px; }
+.gallery__nav--next { right: 12px; }
+.gallery__expand {
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+}
+.gallery__stage:hover .gallery__nav,
+.gallery__stage:hover .gallery__expand,
+.gallery__nav:focus-visible,
+.gallery__expand:focus-visible { opacity: 1; }
+.gallery__nav:hover,
+.gallery__expand:hover { background: rgba(6, 8, 13, 0.92); color: var(--accent); }
+
+/* Touch screens have no hover, so keep controls visible. */
+@media (hover: none) {
+  .gallery__nav, .gallery__expand { opacity: 1; }
+  .gallery__nav { width: 36px; height: 36px; margin-top: -18px; }
+}
+
+.gallery__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-top: 10px;
+  min-height: 2.9em;
+}
+.gallery__caption {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+.gallery__count {
+  flex: none;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-faint);
+}
+
+.gallery__strip {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 2px 2px 6px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+.gallery__thumb {
+  flex: none;
+  width: 92px;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background: #090d14;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.15s, border-color 0.15s;
+}
+.gallery__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.gallery__thumb:hover { opacity: 0.9; }
+.gallery__thumb.is-active { opacity: 1; border-color: var(--accent); }
+
+@media (max-width: 600px) {
+  .gallery__thumb { width: 72px; }
+}
+
+/* ---------- Fullscreen view ---------- */
+
+.lightbox {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgba(3, 5, 8, 0.96);
+  color: var(--text);
+}
+.lightbox::backdrop { background: rgba(3, 5, 8, 0.9); }
+.lightbox[open] { display: grid; place-items: center; }
+
+.lightbox__figure {
+  margin: 0;
+  padding: 56px 72px 24px;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lightbox__figure img {
+  max-width: 100%;
+  max-height: calc(100vh - 140px);
+  object-fit: contain;
+  border-radius: 6px;
+}
+.lightbox__figure figcaption {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.lightbox__nav,
+.lightbox__close {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(15, 21, 31, 0.9);
+  color: var(--text);
+  cursor: pointer;
+}
+.lightbox__nav:hover,
+.lightbox__close:hover { color: var(--accent); border-color: var(--accent); }
+.lightbox__nav {
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  border-radius: 50%;
+}
+.lightbox__nav--prev { left: 16px; }
+.lightbox__nav--next { right: 16px; }
+.lightbox__close {
+  top: 14px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+  .lightbox__figure { padding: 64px 12px 90px; }
+  .lightbox__nav { top: auto; bottom: 20px; margin-top: 0; }
+  .lightbox__nav--prev { left: calc(50% - 60px); }
+  .lightbox__nav--next { right: calc(50% - 60px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery__img { animation: none; }
+}

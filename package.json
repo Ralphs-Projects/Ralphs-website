@@ -1,57 +1,22 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
+  "name": "ralphs-website",
+  "version": "2.0.0",
   "private": true,
-  "dependencies": {
-    "@babel/plugin-transform-class-properties": "^7.25.9",
-    "@babel/plugin-transform-dynamic-import": "^7.25.9",
-    "@babel/plugin-transform-json-strings": "^7.25.9",
-    "@babel/plugin-transform-nullish-coalescing-operator": "^7.26.6",
-    "@babel/plugin-transform-numeric-separator": "^7.25.9",
-    "@babel/plugin-transform-optional-catch-binding": "^7.25.9",
-    "@babel/plugin-transform-optional-chaining": "^7.25.9",
-    "@babel/plugin-transform-unicode-property-regex": "^7.25.9",
-    "@react-pdf-viewer/core": "^3.12.0",
-    "@react-pdf-viewer/default-layout": "^3.12.0",
-    "bootstrap": "^4.3.1",
-    "eta": "^3.5.0",
-    "fs-extra": "^11.3.0",
-    "gh-pages": "^2.2.0",
-    "glob": "^9.3.5",
-    "jquery": "^3.4.1",
-    "lightbox2": "^2.11.0",
-    "lru-cache": "^10.4.3",
-    "normalize.css": "^8.0.1",
-    "popper.js": "^1.15.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "^3.3.0",
-    "react-typed": "^1.1.2",
-    "typed.js": "^2.0.10",
-    "uuid": "^7.0.3"
-  },
+  "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "images": "node scripts/optimize-images.mjs"
   },
-  
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "sass": "^1.85.1"
+    "@vitejs/plugin-react": "^4.3.4",
+    "sass": "^1.85.1",
+    "sharp": "^0.35.5",
+    "vite": "^6.3.5"
   }
 }

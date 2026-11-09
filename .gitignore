@@ -1,2 +1,4 @@
 node_modules/*
 build/*
+# raw screenshots (run npm run images to regenerate WebP)
+assets-src/
